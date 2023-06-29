@@ -6,7 +6,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
   organizationName: 'dappnode', // Usually your GitHub org/user name.
   projectName: 'DAppNode', // Usually your repo name.
   themeConfig: {
@@ -14,16 +14,18 @@ module.exports = {
       title: 'DAppNode',
       logo: {
         alt: 'DAppNode Logo',
-        src: 'img/dappnode-logo.png',
+        src: 'img/logo.png',
+        href: 'https://dappnode.com'
       },
       items: [
-        {to: '/', label: 'Docs', position: 'left'},
+        {to: '/', label: 'User Guide', position: 'left'},
+        {to: '/intro', label: 'Builder Docs', position: 'left'},
         {to: '/dao', label: 'DAO', position: 'left'},
         {
           type: 'localeDropdown',
           dropdownItemsAfter: [
             {
-              to: '/help-to-translate',
+              to: '/help-us-translate',
               label: 'Help Us Translate',
             },
           ],
@@ -61,7 +63,7 @@ module.exports = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.com/invite/c28an8dA5k',
+              href: 'https://discord.com/invite/dappnode',
             },
             {
               label: 'Twitter',
@@ -73,10 +75,6 @@ module.exports = {
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/dappnode',
@@ -91,21 +89,6 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} DAppNode, Inc. Built with Docusaurus.`,
     },
   },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es', 'fr'],
-    localeConfigs:{
-      en: {
-        label: 'English',
-      },
-      fr: {
-        label: 'French',
-      },
-      es: {
-        label: 'Spanish',
-      },
-    },
-  },
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -118,13 +101,20 @@ module.exports = {
             editUrl:
             'https://github.com/dappnode/DAppNodeDocs/blob/master',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+  themes: [
+    // ... Your other themes.
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        docsRouteBasePath: "/",
+        language: "en",
       },
     ],
   ],
